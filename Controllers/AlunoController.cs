@@ -1,7 +1,7 @@
 ﻿using MySqlConnector;
 using ProjetoAPIDanilo.Modelos;
 using ProjetoAPIDanilo.Data;
-
+//teste
 namespace ProjetoAPIDanilo.Controllers
 {
     public class AlunoController
