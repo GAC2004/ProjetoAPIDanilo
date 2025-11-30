@@ -5,7 +5,7 @@ using MySqlConnector;
 using System.Collections.Generic;
 
 [ApiController]
-[Route("api/[controller]")]
+[Route("api/eletronico")]
 public class EletronicosController : ControllerBase
 {
     private readonly Database _db;

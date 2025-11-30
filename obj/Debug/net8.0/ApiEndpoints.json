@@ -2,7 +2,7 @@
   {
     "ContainingType": "ProjetoAPIDanilo.Controllers.AlunoController",
     "Method": "Atualizar",
-    "RelativePath": "api/Aluno/atualizar/{id}",
+    "RelativePath": "api/aluno/atualizar/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -23,7 +23,7 @@
   {
     "ContainingType": "ProjetoAPIDanilo.Controllers.AlunoController",
     "Method": "Buscar",
-    "RelativePath": "api/Aluno/buscar/{id}",
+    "RelativePath": "api/aluno/buscar/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -39,7 +39,7 @@
   {
     "ContainingType": "ProjetoAPIDanilo.Controllers.AlunoController",
     "Method": "Cadastrar",
-    "RelativePath": "api/Aluno/cadastrar",
+    "RelativePath": "api/aluno/cadastrar",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -55,7 +55,7 @@
   {
     "ContainingType": "ProjetoAPIDanilo.Controllers.AlunoController",
     "Method": "Listar",
-    "RelativePath": "api/Aluno/listar",
+    "RelativePath": "api/aluno/listar",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -65,7 +65,7 @@
   {
     "ContainingType": "ProjetoAPIDanilo.Controllers.AlunoController",
     "Method": "Remover",
-    "RelativePath": "api/Aluno/remover/{id}",
+    "RelativePath": "api/aluno/remover/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -81,7 +81,7 @@
   {
     "ContainingType": "EletronicosController",
     "Method": "Atualizar",
-    "RelativePath": "api/Eletronicos/atualizar/{id}",
+    "RelativePath": "api/eletronico/atualizar/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -102,7 +102,7 @@
   {
     "ContainingType": "EletronicosController",
     "Method": "Buscar",
-    "RelativePath": "api/Eletronicos/buscar/{id}",
+    "RelativePath": "api/eletronico/buscar/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -128,7 +128,7 @@
   {
     "ContainingType": "EletronicosController",
     "Method": "Cadastrar",
-    "RelativePath": "api/Eletronicos/cadastrar",
+    "RelativePath": "api/eletronico/cadastrar",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -144,7 +144,7 @@
   {
     "ContainingType": "EletronicosController",
     "Method": "Listar",
-    "RelativePath": "api/Eletronicos/listar",
+    "RelativePath": "api/eletronico/listar",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -164,7 +164,7 @@
   {
     "ContainingType": "EletronicosController",
     "Method": "Remover",
-    "RelativePath": "api/Eletronicos/remover/{id}",
+    "RelativePath": "api/eletronico/remover/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -180,7 +180,7 @@
   {
     "ContainingType": "ProjetoAPIDanilo.Controllers.PapelariaController",
     "Method": "AdicionarEstoque",
-    "RelativePath": "api/Papelaria/adicionar-estoque/{id}/{qtd}",
+    "RelativePath": "api/papelaria/adicionar-estoque/{id}/{qtd}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -201,7 +201,7 @@
   {
     "ContainingType": "ProjetoAPIDanilo.Controllers.PapelariaController",
     "Method": "Atualizar",
-    "RelativePath": "api/Papelaria/atualizar/{id}",
+    "RelativePath": "api/papelaria/atualizar/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -222,7 +222,7 @@
   {
     "ContainingType": "ProjetoAPIDanilo.Controllers.PapelariaController",
     "Method": "Buscar",
-    "RelativePath": "api/Papelaria/buscar/{id}",
+    "RelativePath": "api/papelaria/buscar/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -248,7 +248,7 @@
   {
     "ContainingType": "ProjetoAPIDanilo.Controllers.PapelariaController",
     "Method": "Cadastrar",
-    "RelativePath": "api/Papelaria/cadastrar",
+    "RelativePath": "api/papelaria/cadastrar",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -264,7 +264,7 @@
   {
     "ContainingType": "ProjetoAPIDanilo.Controllers.PapelariaController",
     "Method": "Listar",
-    "RelativePath": "api/Papelaria/listar",
+    "RelativePath": "api/papelaria/listar",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -284,7 +284,7 @@
   {
     "ContainingType": "ProjetoAPIDanilo.Controllers.PapelariaController",
     "Method": "Remover",
-    "RelativePath": "api/Papelaria/remover/{id}",
+    "RelativePath": "api/papelaria/remover/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -300,7 +300,7 @@
   {
     "ContainingType": "ProjetoAPIDanilo.Controllers.PapelariaController",
     "Method": "RetirarEstoque",
-    "RelativePath": "api/Papelaria/retirar-estoque/{id}/{qtd}",
+    "RelativePath": "api/papelaria/retirar-estoque/{id}/{qtd}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -321,7 +321,7 @@
   {
     "ContainingType": "ProjetoAPIDanilo.Controllers.ProdutoController",
     "Method": "Atualizar",
-    "RelativePath": "api/Produto/atualizar/{id}",
+    "RelativePath": "api/produto/atualizar/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -342,7 +342,7 @@
   {
     "ContainingType": "ProjetoAPIDanilo.Controllers.ProdutoController",
     "Method": "Cadastrar",
-    "RelativePath": "api/Produto/cadastrar",
+    "RelativePath": "api/produto/cadastrar",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -358,7 +358,7 @@
   {
     "ContainingType": "ProjetoAPIDanilo.Controllers.ProdutoController",
     "Method": "Listar",
-    "RelativePath": "api/Produto/listar",
+    "RelativePath": "api/produto/listar",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -368,7 +368,7 @@
   {
     "ContainingType": "ProjetoAPIDanilo.Controllers.ProdutoController",
     "Method": "Remover",
-    "RelativePath": "api/Produto/remover/{id}",
+    "RelativePath": "api/produto/remover/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -384,7 +384,7 @@
   {
     "ContainingType": "ProjetoAPIDanilo.Controllers.RequisicaoController",
     "Method": "Buscar",
-    "RelativePath": "api/Requisicao/buscar/{id}",
+    "RelativePath": "api/requisicao/buscar/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -400,7 +400,7 @@
   {
     "ContainingType": "ProjetoAPIDanilo.Controllers.RequisicaoController",
     "Method": "Cancelar",
-    "RelativePath": "api/Requisicao/cancelar/{id}",
+    "RelativePath": "api/requisicao/cancelar/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -416,7 +416,7 @@
   {
     "ContainingType": "ProjetoAPIDanilo.Controllers.RequisicaoController",
     "Method": "Listar",
-    "RelativePath": "api/Requisicao/listar",
+    "RelativePath": "api/requisicao/listar",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -426,7 +426,7 @@
   {
     "ContainingType": "ProjetoAPIDanilo.Controllers.RequisicaoController",
     "Method": "Registrar",
-    "RelativePath": "api/Requisicao/registrar",
+    "RelativePath": "api/requisicao/registrar",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -442,7 +442,7 @@
   {
     "ContainingType": "ProjetoAPIDanilo.Controllers.SecretariaController",
     "Method": "Atualizar",
-    "RelativePath": "api/Secretaria/atualizar/{id}",
+    "RelativePath": "api/secretaria/atualizar/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -463,7 +463,7 @@
   {
     "ContainingType": "ProjetoAPIDanilo.Controllers.SecretariaController",
     "Method": "Buscar",
-    "RelativePath": "api/Secretaria/buscar/{id}",
+    "RelativePath": "api/secretaria/buscar/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -479,7 +479,7 @@
   {
     "ContainingType": "ProjetoAPIDanilo.Controllers.SecretariaController",
     "Method": "Cadastrar",
-    "RelativePath": "api/Secretaria/cadastrar",
+    "RelativePath": "api/secretaria/cadastrar",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -495,7 +495,7 @@
   {
     "ContainingType": "ProjetoAPIDanilo.Controllers.SecretariaController",
     "Method": "Listar",
-    "RelativePath": "api/Secretaria/listar",
+    "RelativePath": "api/secretaria/listar",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -505,7 +505,7 @@
   {
     "ContainingType": "ProjetoAPIDanilo.Controllers.SecretariaController",
     "Method": "Remover",
-    "RelativePath": "api/Secretaria/remover/{id}",
+    "RelativePath": "api/secretaria/remover/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -521,7 +521,7 @@
   {
     "ContainingType": "ProjetoAPIDanilo.Controllers.UsuarioController",
     "Method": "BuscarPorId",
-    "RelativePath": "api/Usuario/buscar/{id}",
+    "RelativePath": "api/usuario/buscar/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -537,7 +537,7 @@
   {
     "ContainingType": "ProjetoAPIDanilo.Controllers.UsuarioController",
     "Method": "Cadastrar",
-    "RelativePath": "api/Usuario/cadastrar",
+    "RelativePath": "api/usuario/cadastrar",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -553,7 +553,7 @@
   {
     "ContainingType": "ProjetoAPIDanilo.Controllers.UsuarioController",
     "Method": "Listar",
-    "RelativePath": "api/Usuario/listar",
+    "RelativePath": "api/usuario/listar",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -573,7 +573,7 @@
   {
     "ContainingType": "ProjetoAPIDanilo.Controllers.UsuarioController",
     "Method": "Deletar",
-    "RelativePath": "api/Usuario/remover/{id}",
+    "RelativePath": "api/usuario/remover/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,

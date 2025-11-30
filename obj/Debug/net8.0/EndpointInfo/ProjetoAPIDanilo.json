@@ -5,7 +5,7 @@
     "version": "1.0"
   },
   "paths": {
-    "/api/Aluno/listar": {
+    "/api/aluno/listar": {
       "get": {
         "tags": [
           "Aluno"
@@ -17,7 +17,7 @@
         }
       }
     },
-    "/api/Aluno/buscar/{id}": {
+    "/api/aluno/buscar/{id}": {
       "get": {
         "tags": [
           "Aluno"
@@ -40,7 +40,7 @@
         }
       }
     },
-    "/api/Aluno/cadastrar": {
+    "/api/aluno/cadastrar": {
       "post": {
         "tags": [
           "Aluno"
@@ -71,7 +71,7 @@
         }
       }
     },
-    "/api/Aluno/atualizar/{id}": {
+    "/api/aluno/atualizar/{id}": {
       "put": {
         "tags": [
           "Aluno"
@@ -113,7 +113,7 @@
         }
       }
     },
-    "/api/Aluno/remover/{id}": {
+    "/api/aluno/remover/{id}": {
       "delete": {
         "tags": [
           "Aluno"
@@ -136,7 +136,7 @@
         }
       }
     },
-    "/api/Eletronicos/listar": {
+    "/api/eletronico/listar": {
       "get": {
         "tags": [
           "Eletronicos"
@@ -174,7 +174,7 @@
         }
       }
     },
-    "/api/Eletronicos/buscar/{id}": {
+    "/api/eletronico/buscar/{id}": {
       "get": {
         "tags": [
           "Eletronicos"
@@ -214,7 +214,7 @@
         }
       }
     },
-    "/api/Eletronicos/cadastrar": {
+    "/api/eletronico/cadastrar": {
       "post": {
         "tags": [
           "Eletronicos"
@@ -245,7 +245,7 @@
         }
       }
     },
-    "/api/Eletronicos/atualizar/{id}": {
+    "/api/eletronico/atualizar/{id}": {
       "put": {
         "tags": [
           "Eletronicos"
@@ -287,7 +287,7 @@
         }
       }
     },
-    "/api/Eletronicos/remover/{id}": {
+    "/api/eletronico/remover/{id}": {
       "delete": {
         "tags": [
           "Eletronicos"
@@ -310,7 +310,7 @@
         }
       }
     },
-    "/api/Papelaria/listar": {
+    "/api/papelaria/listar": {
       "get": {
         "tags": [
           "Papelaria"
@@ -348,7 +348,7 @@
         }
       }
     },
-    "/api/Papelaria/buscar/{id}": {
+    "/api/papelaria/buscar/{id}": {
       "get": {
         "tags": [
           "Papelaria"
@@ -388,7 +388,7 @@
         }
       }
     },
-    "/api/Papelaria/cadastrar": {
+    "/api/papelaria/cadastrar": {
       "post": {
         "tags": [
           "Papelaria"
@@ -419,7 +419,7 @@
         }
       }
     },
-    "/api/Papelaria/atualizar/{id}": {
+    "/api/papelaria/atualizar/{id}": {
       "put": {
         "tags": [
           "Papelaria"
@@ -461,7 +461,7 @@
         }
       }
     },
-    "/api/Papelaria/remover/{id}": {
+    "/api/papelaria/remover/{id}": {
       "delete": {
         "tags": [
           "Papelaria"
@@ -484,7 +484,7 @@
         }
       }
     },
-    "/api/Papelaria/adicionar-estoque/{id}/{qtd}": {
+    "/api/papelaria/adicionar-estoque/{id}/{qtd}": {
       "put": {
         "tags": [
           "Papelaria"
@@ -516,7 +516,7 @@
         }
       }
     },
-    "/api/Papelaria/retirar-estoque/{id}/{qtd}": {
+    "/api/papelaria/retirar-estoque/{id}/{qtd}": {
       "put": {
         "tags": [
           "Papelaria"
@@ -548,7 +548,7 @@
         }
       }
     },
-    "/api/Produto/listar": {
+    "/api/produto/listar": {
       "get": {
         "tags": [
           "Produto"
@@ -560,7 +560,7 @@
         }
       }
     },
-    "/api/Produto/cadastrar": {
+    "/api/produto/cadastrar": {
       "post": {
         "tags": [
           "Produto"
@@ -591,7 +591,7 @@
         }
       }
     },
-    "/api/Produto/atualizar/{id}": {
+    "/api/produto/atualizar/{id}": {
       "put": {
         "tags": [
           "Produto"
@@ -633,7 +633,7 @@
         }
       }
     },
-    "/api/Produto/remover/{id}": {
+    "/api/produto/remover/{id}": {
       "delete": {
         "tags": [
           "Produto"
@@ -656,7 +656,7 @@
         }
       }
     },
-    "/api/Requisicao/listar": {
+    "/api/requisicao/listar": {
       "get": {
         "tags": [
           "Requisicao"
@@ -668,7 +668,7 @@
         }
       }
     },
-    "/api/Requisicao/buscar/{id}": {
+    "/api/requisicao/buscar/{id}": {
       "get": {
         "tags": [
           "Requisicao"
@@ -691,7 +691,7 @@
         }
       }
     },
-    "/api/Requisicao/registrar": {
+    "/api/requisicao/registrar": {
       "post": {
         "tags": [
           "Requisicao"
@@ -722,7 +722,7 @@
         }
       }
     },
-    "/api/Requisicao/cancelar/{id}": {
+    "/api/requisicao/cancelar/{id}": {
       "delete": {
         "tags": [
           "Requisicao"
@@ -745,7 +745,7 @@
         }
       }
     },
-    "/api/Secretaria/listar": {
+    "/api/secretaria/listar": {
       "get": {
         "tags": [
           "Secretaria"
@@ -757,7 +757,7 @@
         }
       }
     },
-    "/api/Secretaria/buscar/{id}": {
+    "/api/secretaria/buscar/{id}": {
       "get": {
         "tags": [
           "Secretaria"
@@ -780,7 +780,7 @@
         }
       }
     },
-    "/api/Secretaria/cadastrar": {
+    "/api/secretaria/cadastrar": {
       "post": {
         "tags": [
           "Secretaria"
@@ -811,7 +811,7 @@
         }
       }
     },
-    "/api/Secretaria/atualizar/{id}": {
+    "/api/secretaria/atualizar/{id}": {
       "put": {
         "tags": [
           "Secretaria"
@@ -853,7 +853,7 @@
         }
       }
     },
-    "/api/Secretaria/remover/{id}": {
+    "/api/secretaria/remover/{id}": {
       "delete": {
         "tags": [
           "Secretaria"
@@ -876,7 +876,7 @@
         }
       }
     },
-    "/api/Usuario/listar": {
+    "/api/usuario/listar": {
       "get": {
         "tags": [
           "Usuario"
@@ -914,7 +914,7 @@
         }
       }
     },
-    "/api/Usuario/buscar/{id}": {
+    "/api/usuario/buscar/{id}": {
       "get": {
         "tags": [
           "Usuario"
@@ -937,7 +937,7 @@
         }
       }
     },
-    "/api/Usuario/cadastrar": {
+    "/api/usuario/cadastrar": {
       "post": {
         "tags": [
           "Usuario"
@@ -968,7 +968,7 @@
         }
       }
     },
-    "/api/Usuario/remover/{id}": {
+    "/api/usuario/remover/{id}": {
       "delete": {
         "tags": [
           "Usuario"

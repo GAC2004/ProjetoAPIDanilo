@@ -7,7 +7,7 @@ using System.Collections.Generic;
 namespace ProjetoAPIDanilo.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/produto")]
     public class ProdutoController : ControllerBase
     {
         private readonly Database _db;
