@@ -1,15 +1,397 @@
 [
   {
-    "ContainingType": "ProjetoAPIDanilo.Controllers.RequisicaoController",
-    "Method": "Registrar",
-    "RelativePath": "api/requisicoes",
+    "ContainingType": "ProjetoAPIDanilo.Controllers.AlunoController",
+    "Method": "Atualizar",
+    "RelativePath": "api/Aluno/atualizar/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "a",
+        "Type": "ProjetoAPIDanilo.Modelos.Aluno",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjetoAPIDanilo.Controllers.AlunoController",
+    "Method": "Buscar",
+    "RelativePath": "api/Aluno/buscar/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjetoAPIDanilo.Controllers.AlunoController",
+    "Method": "Cadastrar",
+    "RelativePath": "api/Aluno/cadastrar",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "req",
-        "Type": "ProjetoAPIDanilo.Modelos.Requisicao",
+        "Name": "a",
+        "Type": "ProjetoAPIDanilo.Modelos.Aluno",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjetoAPIDanilo.Controllers.AlunoController",
+    "Method": "Listar",
+    "RelativePath": "api/Aluno/listar",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjetoAPIDanilo.Controllers.AlunoController",
+    "Method": "Remover",
+    "RelativePath": "api/Aluno/remover/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EletronicosController",
+    "Method": "Atualizar",
+    "RelativePath": "api/Eletronicos/atualizar/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "e",
+        "Type": "ProjetoAPIDanilo.Modelos.Eletronicos",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EletronicosController",
+    "Method": "Buscar",
+    "RelativePath": "api/Eletronicos/buscar/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ProjetoAPIDanilo.Modelos.Eletronicos",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "EletronicosController",
+    "Method": "Cadastrar",
+    "RelativePath": "api/Eletronicos/cadastrar",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "e",
+        "Type": "ProjetoAPIDanilo.Modelos.Eletronicos",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EletronicosController",
+    "Method": "Listar",
+    "RelativePath": "api/Eletronicos/listar",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[ProjetoAPIDanilo.Modelos.Eletronicos, ProjetoAPIDanilo, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "EletronicosController",
+    "Method": "Remover",
+    "RelativePath": "api/Eletronicos/remover/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjetoAPIDanilo.Controllers.PapelariaController",
+    "Method": "AdicionarEstoque",
+    "RelativePath": "api/Papelaria/adicionar-estoque/{id}/{qtd}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "qtd",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjetoAPIDanilo.Controllers.PapelariaController",
+    "Method": "Atualizar",
+    "RelativePath": "api/Papelaria/atualizar/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "novo",
+        "Type": "ProjetoAPIDanilo.Modelos.Papelaria",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjetoAPIDanilo.Controllers.PapelariaController",
+    "Method": "Buscar",
+    "RelativePath": "api/Papelaria/buscar/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ProjetoAPIDanilo.Modelos.Papelaria",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ProjetoAPIDanilo.Controllers.PapelariaController",
+    "Method": "Cadastrar",
+    "RelativePath": "api/Papelaria/cadastrar",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "p",
+        "Type": "ProjetoAPIDanilo.Modelos.Papelaria",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjetoAPIDanilo.Controllers.PapelariaController",
+    "Method": "Listar",
+    "RelativePath": "api/Papelaria/listar",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[ProjetoAPIDanilo.Modelos.Papelaria, ProjetoAPIDanilo, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ProjetoAPIDanilo.Controllers.PapelariaController",
+    "Method": "Remover",
+    "RelativePath": "api/Papelaria/remover/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjetoAPIDanilo.Controllers.PapelariaController",
+    "Method": "RetirarEstoque",
+    "RelativePath": "api/Papelaria/retirar-estoque/{id}/{qtd}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "qtd",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjetoAPIDanilo.Controllers.ProdutoController",
+    "Method": "Atualizar",
+    "RelativePath": "api/Produto/atualizar/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "p",
+        "Type": "ProjetoAPIDanilo.Modelos.Produto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjetoAPIDanilo.Controllers.ProdutoController",
+    "Method": "Cadastrar",
+    "RelativePath": "api/Produto/cadastrar",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "p",
+        "Type": "ProjetoAPIDanilo.Modelos.Produto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjetoAPIDanilo.Controllers.ProdutoController",
+    "Method": "Listar",
+    "RelativePath": "api/Produto/listar",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjetoAPIDanilo.Controllers.ProdutoController",
+    "Method": "Remover",
+    "RelativePath": "api/Produto/remover/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjetoAPIDanilo.Controllers.RequisicaoController",
+    "Method": "Buscar",
+    "RelativePath": "api/Requisicao/buscar/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
@@ -18,7 +400,112 @@
   {
     "ContainingType": "ProjetoAPIDanilo.Controllers.RequisicaoController",
     "Method": "Cancelar",
-    "RelativePath": "api/requisicoes/{id}",
+    "RelativePath": "api/Requisicao/cancelar/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjetoAPIDanilo.Controllers.RequisicaoController",
+    "Method": "Listar",
+    "RelativePath": "api/Requisicao/listar",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjetoAPIDanilo.Controllers.RequisicaoController",
+    "Method": "Registrar",
+    "RelativePath": "api/Requisicao/registrar",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "r",
+        "Type": "ProjetoAPIDanilo.Modelos.Requisicao",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjetoAPIDanilo.Controllers.SecretariaController",
+    "Method": "Atualizar",
+    "RelativePath": "api/Secretaria/atualizar/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "s",
+        "Type": "ProjetoAPIDanilo.Modelos.Usuario",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjetoAPIDanilo.Controllers.SecretariaController",
+    "Method": "Buscar",
+    "RelativePath": "api/Secretaria/buscar/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjetoAPIDanilo.Controllers.SecretariaController",
+    "Method": "Cadastrar",
+    "RelativePath": "api/Secretaria/cadastrar",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "s",
+        "Type": "ProjetoAPIDanilo.Modelos.Usuario",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjetoAPIDanilo.Controllers.SecretariaController",
+    "Method": "Listar",
+    "RelativePath": "api/Secretaria/listar",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjetoAPIDanilo.Controllers.SecretariaController",
+    "Method": "Remover",
+    "RelativePath": "api/Secretaria/remover/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -33,34 +520,8 @@
   },
   {
     "ContainingType": "ProjetoAPIDanilo.Controllers.UsuarioController",
-    "Method": "Listar",
-    "RelativePath": "api/usuarios",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "ProjetoAPIDanilo.Controllers.UsuarioController",
-    "Method": "Cadastrar",
-    "RelativePath": "api/usuarios",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "usuario",
-        "Type": "ProjetoAPIDanilo.Modelos.Usuario",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "ProjetoAPIDanilo.Controllers.UsuarioController",
     "Method": "BuscarPorId",
-    "RelativePath": "api/usuarios/{id}",
+    "RelativePath": "api/Usuario/buscar/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -75,8 +536,44 @@
   },
   {
     "ContainingType": "ProjetoAPIDanilo.Controllers.UsuarioController",
+    "Method": "Cadastrar",
+    "RelativePath": "api/Usuario/cadastrar",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "usuario",
+        "Type": "ProjetoAPIDanilo.Modelos.Usuario",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjetoAPIDanilo.Controllers.UsuarioController",
+    "Method": "Listar",
+    "RelativePath": "api/Usuario/listar",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[ProjetoAPIDanilo.Modelos.Usuario, ProjetoAPIDanilo, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ProjetoAPIDanilo.Controllers.UsuarioController",
     "Method": "Deletar",
-    "RelativePath": "api/usuarios/{id}",
+    "RelativePath": "api/Usuario/remover/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,

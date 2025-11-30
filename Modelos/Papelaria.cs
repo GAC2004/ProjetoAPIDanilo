@@ -1,6 +1,4 @@
-﻿using ProjetoAPIDanilo;
-
-namespace ProjetoAPIDanilo.Modelos
+﻿namespace ProjetoAPIDanilo.Modelos
 {
     public class Papelaria : Produto
     {

@@ -36,3 +36,4 @@ C:\Users\Gabriela-Note\source\repos\ProjetoAPIDanilo\ProjetoAPIDanilo\obj\Debug\
 C:\Users\Gabriela-Note\source\repos\ProjetoAPIDanilo\ProjetoAPIDanilo\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 C:\Users\Gabriela-Note\source\repos\ProjetoAPIDanilo\ProjetoAPIDanilo\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
 C:\Users\Gabriela-Note\source\repos\ProjetoAPIDanilo\ProjetoAPIDanilo\bin\Debug\net8.0\MySqlConnector.dll
+C:\Users\Gabriela-Note\source\repos\ProjetoAPIDanilo\ProjetoAPIDanilo\obj\Debug\net8.0\ProjetoAPIDanilo.sourcelink.json

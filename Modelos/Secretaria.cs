@@ -1,9 +1,14 @@
-﻿using ProjetoAPIDanilo.Modelos;
+﻿using System.Collections.Generic;
 
 namespace ProjetoAPIDanilo.Modelos
 {
     public class Secretaria : Usuario
     {
+        public override string ExibirDados()
+        {
+            return $"Secretária: {Nome}";
+        }
+
         public void CadastrarProduto(Produto produto, List<Produto> banco)
         {
             banco.Add(produto);
@@ -12,11 +17,6 @@ namespace ProjetoAPIDanilo.Modelos
         public void AtualizarEstoque(Produto produto, int qtd)
         {
             produto.Quantidade = qtd;
-        }
-
-        public override string ExibirDados()
-        {
-            return $"Secretária: {Nome}";
         }
     }
 }

@@ -1,17 +1,17 @@
-﻿using ProjetoAPIDanilo.Modelos;
+﻿using System;
 
-namespace ProjetoAPIDanilo.Modelos { 
-
-public class Aluno : Usuario
+namespace ProjetoAPIDanilo.Modelos
 {
-    public override string ExibirDados()
+    public class Aluno : Usuario
     {
-        return $"Aluno: {Nome}";
-    }
+        public override string ExibirDados()
+        {
+            return $"Aluno: {Nome}";
+        }
 
-    public string SolicitarProduto()
-    {
-        return $"{Nome} solicitou um produto.";
+        public string SolicitarProduto()
+        {
+            return $"{Nome} solicitou um produto.";
+        }
     }
-}
 }

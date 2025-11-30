@@ -1,10 +1,14 @@
-﻿using MySqlConnector;
-using ProjetoAPIDanilo.Modelos;
+﻿using Microsoft.AspNetCore.Mvc;
+using MySqlConnector;
 using ProjetoAPIDanilo.Data;
-//teste
+using ProjetoAPIDanilo.Modelos;
+using System.Collections.Generic;
+
 namespace ProjetoAPIDanilo.Controllers
 {
-    public class AlunoController
+    [ApiController]
+    [Route("api/[controller]")]
+    public class AlunoController : ControllerBase
     {
         private readonly Database _db;
 
@@ -13,22 +17,15 @@ namespace ProjetoAPIDanilo.Controllers
             _db = db;
         }
 
-        public List<Aluno> Listar()
+        [HttpGet("listar")]
+        public IActionResult Listar()
         {
             var lista = new List<Aluno>();
-
             using var conn = _db.GetConnection();
             conn.Open();
 
-            string sql = @"
-                SELECT Usuario.Id, Usuario.Nome
-                FROM Usuario
-                INNER JOIN Aluno ON Usuario.Id = Aluno.Id;
-            ";
-
-            using var cmd = new MySqlCommand(sql, conn);
+            var cmd = new MySqlCommand("SELECT * FROM Usuario WHERE TipoUsuario='Aluno'", conn);
             using var rd = cmd.ExecuteReader();
-
             while (rd.Read())
             {
                 lista.Add(new Aluno
@@ -38,45 +35,78 @@ namespace ProjetoAPIDanilo.Controllers
                 });
             }
 
-            return lista;
+            return Ok(lista);
         }
 
-        public Aluno Cadastrar(Aluno aluno)
+        [HttpGet("buscar/{id}")]
+        public IActionResult Buscar(int id)
         {
             using var conn = _db.GetConnection();
             conn.Open();
 
-            using var trans = conn.BeginTransaction();
+            var cmd = new MySqlCommand("SELECT * FROM Usuario WHERE Id=@id AND TipoUsuario='Aluno'", conn);
+            cmd.Parameters.AddWithValue("@id", id);
 
-            try
+            using var rd = cmd.ExecuteReader();
+            if (rd.Read())
             {
-                // Inserir em Usuario
-                var cmd1 = new MySqlCommand(
-                    @"INSERT INTO Usuario (Nome, TipoUsuario) 
-                      VALUES (@n, 'Aluno'); 
-                      SELECT LAST_INSERT_ID();",
-                    conn, trans
-                );
-                cmd1.Parameters.AddWithValue("@n", aluno.Nome);
-
-                aluno.Id = Convert.ToInt32(cmd1.ExecuteScalar());
-
-                // Inserir em Aluno
-                var cmd2 = new MySqlCommand(
-                    "INSERT INTO Aluno (Id) VALUES (@id)",
-                    conn, trans
-                );
-                cmd2.Parameters.AddWithValue("@id", aluno.Id);
-                cmd2.ExecuteNonQuery();
-
-                trans.Commit();
-                return aluno;
+                var aluno = new Aluno
+                {
+                    Id = rd.GetInt32("Id"),
+                    Nome = rd.GetString("Nome")
+                };
+                return Ok(aluno);
             }
-            catch
-            {
-                trans.Rollback();
-                throw;
-            }
+            return NotFound("Aluno não encontrado.");
+        }
+
+        [HttpPost("cadastrar")]
+        public IActionResult Cadastrar([FromBody] Aluno a)
+        {
+            if (string.IsNullOrWhiteSpace(a.Nome))
+                return BadRequest("Nome é obrigatório.");
+
+            using var conn = _db.GetConnection();
+            conn.Open();
+
+            var cmd = new MySqlCommand("INSERT INTO Usuario (Nome, TipoUsuario) VALUES (@nome,'Aluno'); SELECT LAST_INSERT_ID();", conn);
+            cmd.Parameters.AddWithValue("@nome", a.Nome);
+
+            a.Id = Convert.ToInt32(cmd.ExecuteScalar());
+            return Ok(new { Mensagem = "Aluno cadastrado com sucesso.", Dados = a });
+        }
+
+        [HttpPut("atualizar/{id}")]
+        public IActionResult Atualizar(int id, [FromBody] Aluno a)
+        {
+            using var conn = _db.GetConnection();
+            conn.Open();
+
+            var cmd = new MySqlCommand("UPDATE Usuario SET Nome=@nome WHERE Id=@id AND TipoUsuario='Aluno'", conn);
+            cmd.Parameters.AddWithValue("@nome", a.Nome);
+            cmd.Parameters.AddWithValue("@id", id);
+
+            return cmd.ExecuteNonQuery() > 0 ? Ok("Aluno atualizado com sucesso.") : NotFound("Aluno não encontrado.");
+        }
+
+        [HttpDelete("remover/{id}")]
+        public IActionResult Remover(int id)
+        {
+            using var conn = _db.GetConnection();
+            conn.Open();
+
+            // Verifica se existem requisições ligadas ao aluno
+            var checkCmd = new MySqlCommand("SELECT COUNT(*) FROM Requisicao WHERE UsuarioId=@id", conn);
+            checkCmd.Parameters.AddWithValue("@id", id);
+            int count = Convert.ToInt32(checkCmd.ExecuteScalar());
+
+            if (count > 0)
+                return BadRequest("Não é possível remover este aluno. Existem requisições associadas.");
+
+            var cmd = new MySqlCommand("DELETE FROM Usuario WHERE Id=@id AND TipoUsuario='Aluno'", conn);
+            cmd.Parameters.AddWithValue("@id", id);
+
+            return cmd.ExecuteNonQuery() > 0 ? Ok("Aluno removido com sucesso.") : NotFound("Aluno não encontrado.");
         }
     }
 }

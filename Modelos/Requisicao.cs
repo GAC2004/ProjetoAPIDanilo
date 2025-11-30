@@ -1,5 +1,6 @@
 ﻿using ProjetoAPIDanilo.Data;
 using System;
+using System.Collections.Generic;
 using MySqlConnector;
 
 namespace ProjetoAPIDanilo.Modelos
@@ -13,6 +14,9 @@ namespace ProjetoAPIDanilo.Modelos
         public string TipoRequisicao { get; set; } // Doacao | Emprestimo
         public DateTime Data { get; set; } = DateTime.Now;
 
+        // ==========================================================
+        // Registrar Requisicao
+        // ==========================================================
         public bool Registrar(Database db)
         {
             using var conn = db.GetConnection();
@@ -44,7 +48,7 @@ namespace ProjetoAPIDanilo.Modelos
             if (TipoRequisicao == "Emprestimo" && !produto.PodeEmprestar) return false;
             if (produto.Quantidade < Quantidade) return false;
 
-            // Atualiza estoque
+            // Atualizar estoque
             produto.Quantidade -= Quantidade;
 
             var cmdUpdate = new MySqlCommand(
@@ -53,7 +57,7 @@ namespace ProjetoAPIDanilo.Modelos
             cmdUpdate.Parameters.AddWithValue("@id", produto.Id);
             cmdUpdate.ExecuteNonQuery();
 
-            // Registrar a requisição no banco
+            // Registrar requisição
             var cmdInsert = new MySqlCommand(
                 @"INSERT INTO Requisicao (UsuarioId, ProdutoId, Quantidade, TipoRequisicao, Data)
                   VALUES (@u, @p, @q, @t, @d);", conn);
@@ -69,6 +73,9 @@ namespace ProjetoAPIDanilo.Modelos
             return true;
         }
 
+        // ==========================================================
+        // Cancelar Requisicao
+        // ==========================================================
         public bool Cancelar(Database db)
         {
             using var conn = db.GetConnection();
@@ -91,7 +98,7 @@ namespace ProjetoAPIDanilo.Modelos
                 else return false;
             }
 
-            // Devolver estoque
+            // Restaurar estoque
             var cmdEstoque = new MySqlCommand(
                 @"UPDATE Produto SET Quantidade = Quantidade + @q WHERE Id=@id", conn);
             cmdEstoque.Parameters.AddWithValue("@q", qtd);
@@ -105,6 +112,64 @@ namespace ProjetoAPIDanilo.Modelos
             cmdDel.ExecuteNonQuery();
 
             return true;
+        }
+
+        // ==========================================================
+        // LISTAR TODAS AS REQUISIÇÕES
+        // ==========================================================
+        public static List<Requisicao> Listar(Database db)
+        {
+            var lista = new List<Requisicao>();
+
+            using var conn = db.GetConnection();
+            conn.Open();
+
+            var cmd = new MySqlCommand("SELECT * FROM Requisicao", conn);
+
+            using var rd = cmd.ExecuteReader();
+            while (rd.Read())
+            {
+                lista.Add(new Requisicao
+                {
+                    Id = rd.GetInt32("Id"),
+                    UsuarioId = rd.GetInt32("UsuarioId"),
+                    ProdutoId = rd.GetInt32("ProdutoId"),
+                    Quantidade = rd.GetInt32("Quantidade"),
+                    TipoRequisicao = rd.GetString("TipoRequisicao"),
+                    Data = rd.GetDateTime("Data")
+                });
+            }
+
+            return lista;
+        }
+
+        // ==========================================================
+        // BUSCAR REQUISIÇÃO POR ID
+        // ==========================================================
+        public static Requisicao BuscarPorId(Database db, int id)
+        {
+            using var conn = db.GetConnection();
+            conn.Open();
+
+            var cmd = new MySqlCommand("SELECT * FROM Requisicao WHERE Id=@id", conn);
+            cmd.Parameters.AddWithValue("@id", id);
+
+            using var rd = cmd.ExecuteReader();
+
+            if (rd.Read())
+            {
+                return new Requisicao
+                {
+                    Id = rd.GetInt32("Id"),
+                    UsuarioId = rd.GetInt32("UsuarioId"),
+                    ProdutoId = rd.GetInt32("ProdutoId"),
+                    Quantidade = rd.GetInt32("Quantidade"),
+                    TipoRequisicao = rd.GetString("TipoRequisicao"),
+                    Data = rd.GetDateTime("Data")
+                };
+            }
+
+            return null;
         }
     }
 }

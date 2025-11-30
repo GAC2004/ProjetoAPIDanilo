@@ -2,27 +2,29 @@ using ProjetoAPIDanilo.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// ================================================
-// Serviços
-// ================================================
-builder.Services.AddSingleton<Database>();
-
+// Adiciona serviços do controlador
 builder.Services.AddControllers();
 
-// ---- Adiciona Swagger ----
+// Configura Database para injeção de dependência
+builder.Services.AddSingleton<Database>();
+
+// Configura Swagger
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// ================================================
-// Pipeline
-// ================================================
-if (app.Environment.IsDevelopment())
+// Habilita Swagger sempre, independente do ambiente
+app.UseSwagger();
+app.UseSwaggerUI(c =>
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "API Escola Estoque v1");
+    c.RoutePrefix = "swagger"; // Swagger ficará em /swagger
+});
+
+app.UseHttpsRedirection();
+
+app.UseAuthorization();
 
 app.MapControllers();
 

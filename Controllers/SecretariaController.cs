@@ -1,10 +1,14 @@
-﻿using MySqlConnector;
+﻿using Microsoft.AspNetCore.Mvc;
+using MySqlConnector;
 using ProjetoAPIDanilo.Data;
 using ProjetoAPIDanilo.Modelos;
+using System.Collections.Generic;
 
 namespace ProjetoAPIDanilo.Controllers
 {
-    public class SecretariaController
+    [ApiController]
+    [Route("api/[controller]")]
+    public class SecretariaController : ControllerBase
     {
         private readonly Database _db;
 
@@ -13,54 +17,102 @@ namespace ProjetoAPIDanilo.Controllers
             _db = db;
         }
 
-        public List<Secretaria> Listar()
+        // GET: api/secretaria/listar
+        [HttpGet("listar")]
+        public IActionResult Listar()
         {
-            var lista = new List<Secretaria>();
-
+            var lista = new List<Usuario>();
             using var conn = _db.GetConnection();
             conn.Open();
 
-            string sql = @"SELECT Usuario.Id, Usuario.Nome 
-                           FROM Usuario
-                           INNER JOIN Secretaria ON Usuario.Id = Secretaria.Id";
-
-            using var cmd = new MySqlCommand(sql, conn);
+            var cmd = new MySqlCommand("SELECT * FROM Usuario WHERE TipoUsuario='Secretaria'", conn);
             using var rd = cmd.ExecuteReader();
-
             while (rd.Read())
             {
-                lista.Add(new Secretaria
+                lista.Add(new Usuario
                 {
                     Id = rd.GetInt32("Id"),
                     Nome = rd.GetString("Nome")
                 });
             }
 
-            return lista;
+            return Ok(lista);
         }
 
-        public Secretaria Cadastrar(Secretaria s)
+        // GET: api/secretaria/buscar/{id}
+        [HttpGet("buscar/{id}")]
+        public IActionResult Buscar(int id)
         {
             using var conn = _db.GetConnection();
             conn.Open();
 
-            var cmd1 = new MySqlCommand(
-                @"INSERT INTO Usuario (Nome, TipoUsuario) 
-                  VALUES (@n, 'Secretaria'); 
-                  SELECT LAST_INSERT_ID();",
-                conn);
+            var cmd = new MySqlCommand("SELECT * FROM Usuario WHERE Id=@id AND TipoUsuario='Secretaria'", conn);
+            cmd.Parameters.AddWithValue("@id", id);
 
-            cmd1.Parameters.AddWithValue("@n", s.Nome);
+            using var rd = cmd.ExecuteReader();
+            if (rd.Read())
+            {
+                var sec = new Usuario
+                {
+                    Id = rd.GetInt32("Id"),
+                    Nome = rd.GetString("Nome")
+                };
+                return Ok(sec);
+            }
+            return NotFound("Secretaria não encontrada.");
+        }
 
-            s.Id = Convert.ToInt32(cmd1.ExecuteScalar());
+        // POST: api/secretaria/cadastrar
+        [HttpPost("cadastrar")]
+        public IActionResult Cadastrar([FromBody] Usuario s)
+        {
+            if (string.IsNullOrWhiteSpace(s.Nome))
+                return BadRequest("Nome é obrigatório.");
 
-            var cmd2 = new MySqlCommand(
-                "INSERT INTO Secretaria (Id) VALUES (@id)", conn);
+            using var conn = _db.GetConnection();
+            conn.Open();
 
-            cmd2.Parameters.AddWithValue("@id", s.Id);
-            cmd2.ExecuteNonQuery();
+            var cmd = new MySqlCommand("INSERT INTO Usuario (Nome, TipoUsuario) VALUES (@nome,'Secretaria'); SELECT LAST_INSERT_ID();", conn);
+            cmd.Parameters.AddWithValue("@nome", s.Nome);
 
-            return s;
+            s.Id = Convert.ToInt32(cmd.ExecuteScalar());
+
+            return Ok(new { Mensagem = "Secretaria cadastrada com sucesso.", Dados = s });
+        }
+
+        // PUT: api/secretaria/atualizar/{id}
+        [HttpPut("atualizar/{id}")]
+        public IActionResult Atualizar(int id, [FromBody] Usuario s)
+        {
+            using var conn = _db.GetConnection();
+            conn.Open();
+
+            var cmd = new MySqlCommand("UPDATE Usuario SET Nome=@nome WHERE Id=@id AND TipoUsuario='Secretaria'", conn);
+            cmd.Parameters.AddWithValue("@nome", s.Nome);
+            cmd.Parameters.AddWithValue("@id", id);
+
+            return cmd.ExecuteNonQuery() > 0 ? Ok("Secretaria atualizada com sucesso.") : NotFound("Secretaria não encontrada.");
+        }
+
+        // DELETE: api/secretaria/remover/{id}
+        [HttpDelete("remover/{id}")]
+        public IActionResult Remover(int id)
+        {
+            using var conn = _db.GetConnection();
+            conn.Open();
+
+            // Verifica se existem requisições ligadas à secretaria
+            var checkCmd = new MySqlCommand("SELECT COUNT(*) FROM Requisicao WHERE UsuarioId=@id", conn);
+            checkCmd.Parameters.AddWithValue("@id", id);
+            int count = Convert.ToInt32(checkCmd.ExecuteScalar());
+
+            if (count > 0)
+                return BadRequest("Não é possível remover esta secretaria. Existem requisições associadas.");
+
+            var cmd = new MySqlCommand("DELETE FROM Usuario WHERE Id=@id AND TipoUsuario='Secretaria'", conn);
+            cmd.Parameters.AddWithValue("@id", id);
+
+            return cmd.ExecuteNonQuery() > 0 ? Ok("Secretaria removida com sucesso.") : NotFound("Secretaria não encontrada.");
         }
     }
 }
